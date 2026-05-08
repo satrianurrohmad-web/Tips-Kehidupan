@@ -2,113 +2,59 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LifeHub GOD MODE</title>
-
+  <title>Beranda - Belajar</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial;
+      margin: 0;
       background: #0f172a;
       color: white;
     }
 
-    .login {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
+    nav {
+      background: #1e293b;
+      padding: 15px;
     }
 
-    input {
-      padding: 10px;
-      margin: 5px;
-      border-radius: 8px;
-      border: none;
-    }
-
-    button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      background: #38bdf8;
+    nav a {
+      color: white;
+      margin-right: 15px;
+      text-decoration: none;
       font-weight: bold;
     }
 
-    .dashboard {
-      display: none;
-      padding: 20px;
+    .content {
+      padding: 30px;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 10px;
+    h1 {
+      color: #38bdf8;
     }
   </style>
 </head>
 
 <body>
 
-<!-- LOGIN -->
-<div class="login" id="loginPage">
-  <h2>🔐 Login LifeHub</h2>
-  <input type="text" id="user" placeholder="Username">
-  <button onclick="login()">Masuk</button>
-</div>
+<nav>
+  <a href="index.html">🏠 Beranda</a>
+  <a href="motivasi.html">💪 Motivasi</a>
+</nav>
 
-<!-- DASHBOARD -->
-<div class="dashboard" id="dashboard">
+<div class="content">
 
-  <h1>👋 Halo, Satria</h1>
-  <p>Ini dashboard God Mode kamu 😎</p>
+  <h1>Apa itu Belajar?</h1>
+  <p>
+    Belajar adalah proses memahami hal baru untuk menjadi lebih baik setiap hari.
+  </p>
 
-  <div class="card">
-    <h3>📌 Catatan Hari Ini</h3>
-    <input id="note" placeholder="Tulis catatan...">
-    <button onclick="saveNote()">Simpan</button>
-    <p id="output"></p>
-  </div>
-
-  <div class="card">
-    <h3>🔥 Motivasi</h3>
-    <p id="motivation">Klik tombol untuk inspirasi</p>
-    <button onclick="randomMotivation()">Ganti Motivasi</button>
-  </div>
+  <h2>Mengapa kita harus belajar?</h2>
+  <ul>
+    <li>Untuk masa depan yang lebih baik</li>
+    <li>Untuk meningkatkan kemampuan diri</li>
+    <li>Untuk mencapai cita-cita</li>
+  </ul>
 
 </div>
-
-<script>
-function login() {
-  const user = document.getElementById("user").value;
-
-  if(user !== "") {
-    document.getElementById("loginPage").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
-  }
-}
-
-function saveNote() {
-  const note = document.getElementById("note").value;
-  document.getElementById("output").innerText = "Catatan: " + note;
-  localStorage.setItem("note", note);
-}
-
-function randomMotivation() {
-  const list = [
-    "Kamu bisa kalau kamu konsisten 💪",
-    "Sedikit tapi setiap hari lebih kuat 🔥",
-    "Jangan menyerah sekarang 😎",
-    "Hari ini kamu lebih baik dari kemarin 🚀"
-  ];
-
-  document.getElementById("motivation").innerText =
-    list[Math.floor(Math.random() * list.length)];
-}
-</script>
 
 </body>
 </html>
