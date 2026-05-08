@@ -1,78 +1,13 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>Motivasi Belajar</title>
-
-  <style>
-    body {
-      font-family: Arial;
-      margin: 0;
-      background: #111827;
-      color: white;
-      text-align: center;
-    }
-
-    nav {
-      background: #1f2937;
-      padding: 15px;
-    }
-
-    nav a {
-      color: white;
-      margin: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .box {
-      margin-top: 50px;
-      padding: 20px;
-    }
-
-    button {
-      padding: 10px 15px;
-      border: none;
-      border-radius: 10px;
-      background: #38bdf8;
-      cursor: pointer;
-      font-weight: bold;
-    }
-  </style>
-</head>
-
-<body>
-
-<nav>
-  <a href="index.html">🏠 Beranda</a>
-  <a href="motivasi.html">💪 Motivasi</a>
-</nav>
-
 <div class="box">
 
   <h1>🔥 Motivasi Belajar</h1>
 
-  <p id="kata">
-    Klik tombol untuk motivasi!
-  </p>
+  <div style="margin:20px auto; max-width:500px; background:#1f2937; padding:20px; border-radius:15px;">
+    <p id="kata">
+      Klik tombol untuk mendapatkan motivasi terbaik 💪
+    </p>
+  </div>
 
-  <button onclick="ganti()">Ganti Motivasi</button>
+  <button onclick="ganti()">✨ Ganti Motivasi</button>
 
 </div>
-
-<script>
-function ganti() {
-  const list = [
-    "Belajar hari ini = sukses besok 💪",
-    "Sedikit tapi konsisten lebih kuat 🔥",
-    "Jangan menyerah, kamu bisa 😎",
-    "Setiap hari kamu lebih baik dari kemarin 🚀"
-  ];
-
-  document.getElementById("kata").innerText =
-    list[Math.floor(Math.random() * list.length)];
-}
-</script>
-
-</body>
-</html>
