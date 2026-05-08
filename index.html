@@ -3,60 +3,82 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tips Kehidupan Satria</title>
+  <title>LifeHub Satria</title>
 
   <style>
+    :root {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #ffffff;
+      --accent: #38bdf8;
+    }
+
+    body.light {
+      --bg: #f1f5f9;
+      --card: white;
+      --text: black;
+      --accent: #2563eb;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0f172a, #1e293b);
-      color: white;
-      text-align: center;
+      font-family: Arial;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.3s;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      padding: 15px 20px;
+      background: var(--card);
+      position: sticky;
+      top: 0;
+    }
+
+    .menu a {
+      color: var(--text);
+      margin: 0 10px;
+      text-decoration: none;
     }
 
     header {
-      padding: 50px 20px;
-    }
-
-    h1 {
-      font-size: 40px;
-      margin-bottom: 10px;
+      text-align: center;
+      padding: 40px;
     }
 
     .btn {
-      padding: 12px 20px;
-      background: #38bdf8;
+      padding: 10px 15px;
       border: none;
       border-radius: 10px;
       cursor: pointer;
+      background: var(--accent);
+      color: white;
       font-weight: bold;
-      margin-top: 15px;
     }
 
     .container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 15px;
-      padding: 30px;
+      padding: 20px;
     }
 
     .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 15px;
-      border: 1px solid #334155;
+      background: var(--card);
+      padding: 15px;
+      border-radius: 12px;
       transition: 0.3s;
     }
 
     .card:hover {
-      transform: scale(1.05);
-      border-color: #38bdf8;
+      transform: translateY(-5px);
     }
 
     footer {
-      margin-top: 30px;
+      text-align: center;
       padding: 20px;
-      font-size: 14px;
       opacity: 0.7;
     }
   </style>
@@ -64,50 +86,50 @@
 
 <body>
 
-<header>
-  <h1>Tips Kehidupan Satria 🚀</h1>
-  <p>Website motivasi & kehidupan sehari-hari</p>
+<nav>
+  <div><b>LifeHub Satria</b></div>
+  <div class="menu">
+    <a href="#">Home</a>
+    <a href="#">Tips</a>
+    <a href="#">About</a>
+  </div>
+</nav>
 
-  <button class="btn" onclick="tambahTips()">
-    Tampilkan Tips Baru ✨
+<header>
+  <h1>🚀 Welcome Satria</h1>
+  <p>Website super pro kehidupan & motivasi</p>
+
+  <button class="btn" onclick="toggleMode()">
+    Ganti Mode 🌗
   </button>
 </header>
 
-<div class="container" id="tips">
+<div class="container">
 
   <div class="card">
-    <h3>Bangun Pagi</h3>
-    <p>Mulai hari lebih produktif.</p>
+    <h3>Disiplin</h3>
+    <p>Kunci sukses adalah konsistensi.</p>
   </div>
 
   <div class="card">
     <h3>Fokus</h3>
-    <p>Kurangi distraksi saat belajar.</p>
+    <p>Kurangi distraksi setiap hari.</p>
   </div>
 
   <div class="card">
-    <h3>Konsisten</h3>
-    <p>Lebih baik sedikit tapi rutin.</p>
+    <h3>Belajar</h3>
+    <p>Sedikit tapi rutin lebih kuat.</p>
   </div>
 
 </div>
 
 <footer>
-  Dibuat oleh Satria 😎
+  Dibuat oleh Satria 😎 | Super Duper Pro Web
 </footer>
 
 <script>
-function tambahTips() {
-  const container = document.getElementById("tips");
-
-  const card = document.createElement("div");
-  card.className = "card";
-  card.innerHTML = `
-    <h3>Tips Baru 🔥</h3>
-    <p>Jangan menyerah, setiap hari kamu jadi lebih baik!</p>
-  `;
-
-  container.appendChild(card);
+function toggleMode() {
+  document.body.classList.toggle("light");
 }
 </script>
 
