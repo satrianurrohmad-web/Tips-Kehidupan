@@ -13,7 +13,6 @@
       animation: fadeIn 0.6s ease-in;
     }
 
-    /* ANIMASI MASUK */
     @keyframes fadeIn {
       from {
         opacity: 0;
@@ -50,19 +49,6 @@
       margin: auto;
     }
 
-    .card {
-      background: #1e293b;
-      padding: 15px;
-      border-radius: 12px;
-      margin-bottom: 15px;
-      border-left: 4px solid #38bdf8;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px) scale(1.02);
-    }
-
     h1 {
       color: #38bdf8;
     }
@@ -70,6 +56,48 @@
     h2 {
       margin-top: 30px;
       color: #f1f5f9;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      border-left: 4px solid #38bdf8;
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    /* 🔥 GAMBAR HERO */
+    .image-section {
+      text-align: center;
+      margin: 20px 0 30px 0;
+    }
+
+    .question {
+      font-size: 80px;
+      font-weight: bold;
+      color: #38bdf8;
+      margin-bottom: -20px;
+    }
+
+    .image-section img {
+      width: 280px;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+      transition: 0.3s;
+    }
+
+    .image-section img:hover {
+      transform: scale(1.05);
+    }
+
+    .caption {
+      margin-top: 10px;
+      opacity: 0.8;
     }
   </style>
 </head>
@@ -83,7 +111,23 @@
 
 <div class="container">
 
+  <!-- 🔥 GAMBAR DI PALING ATAS -->
+  <div class="image-section">
+
+    <div class="question">?</div>
+
+    <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
+         alt="Buku terbuka">
+
+    <div class="caption">
+      Mengapa kita harus belajar?
+    </div>
+
+  </div>
+
+  <!-- JUDUL -->
   <h1>Apa itu Belajar?</h1>
+
   <p>
     Belajar adalah proses memahami hal baru untuk menjadi lebih baik setiap hari.
   </p>
