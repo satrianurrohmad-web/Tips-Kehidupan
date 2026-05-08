@@ -9,68 +9,55 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #0f172a;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
       color: white;
+      text-align: center;
     }
 
     header {
-      padding: 60px 20px;
-      text-align: center;
-      background: linear-gradient(135deg, #4f46e5, #06b6d4);
+      padding: 50px 20px;
     }
 
-    header h1 {
-      font-size: 42px;
-      margin: 0;
+    h1 {
+      font-size: 40px;
+      margin-bottom: 10px;
     }
 
-    header p {
-      margin-top: 10px;
-      opacity: 0.9;
+    .btn {
+      padding: 12px 20px;
+      background: #38bdf8;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
     }
 
     .container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 40px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+      padding: 30px;
     }
 
     .card {
       background: #1e293b;
       padding: 20px;
       border-radius: 15px;
-      transition: 0.3s;
       border: 1px solid #334155;
+      transition: 0.3s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.05);
       border-color: #38bdf8;
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #38bdf8;
-    }
-
     footer {
-      text-align: center;
+      margin-top: 30px;
       padding: 20px;
-      background: #0b1220;
       font-size: 14px;
       opacity: 0.7;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background: #38bdf8;
-      color: black;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
     }
   </style>
 </head>
@@ -79,37 +66,50 @@
 
 <header>
   <h1>Tips Kehidupan Satria 🚀</h1>
-  <p>Belajar lebih baik, hidup lebih produktif, dan berkembang setiap hari</p>
-  <a class="btn" href="#tips">Lihat Tips</a>
+  <p>Website motivasi & kehidupan sehari-hari</p>
+
+  <button class="btn" onclick="tambahTips()">
+    Tampilkan Tips Baru ✨
+  </button>
 </header>
 
-<section class="container" id="tips">
+<div class="container" id="tips">
 
   <div class="card">
-    <h3>Disiplin Waktu</h3>
-    <p>Mulai hari dengan jadwal yang jelas agar lebih produktif.</p>
+    <h3>Bangun Pagi</h3>
+    <p>Mulai hari lebih produktif.</p>
   </div>
 
   <div class="card">
-    <h3>Fokus Belajar</h3>
-    <p>Hindari distraksi seperti HP saat belajar penting.</p>
-  </div>
-
-  <div class="card">
-    <h3>Istirahat Sehat</h3>
-    <p>Jangan lupa tidur cukup agar otak tetap optimal.</p>
+    <h3>Fokus</h3>
+    <p>Kurangi distraksi saat belajar.</p>
   </div>
 
   <div class="card">
     <h3>Konsisten</h3>
-    <p>Lebih baik sedikit tapi rutin daripada banyak tapi berhenti.</p>
+    <p>Lebih baik sedikit tapi rutin.</p>
   </div>
 
-</section>
+</div>
 
 <footer>
-  Dibuat oleh Satria | Website Tips Kehidupan 🌍
+  Dibuat oleh Satria 😎
 </footer>
+
+<script>
+function tambahTips() {
+  const container = document.getElementById("tips");
+
+  const card = document.createElement("div");
+  card.className = "card";
+  card.innerHTML = `
+    <h3>Tips Baru 🔥</h3>
+    <p>Jangan menyerah, setiap hari kamu jadi lebih baik!</p>
+  `;
+
+  container.appendChild(card);
+}
+</script>
 
 </body>
 </html>
