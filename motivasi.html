@@ -1,13 +1,125 @@
-<div class="box">
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Motivasi Belajar</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      background: #0f172a;
+      color: white;
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    /* ANIMASI MASUK HALAMAN */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      background: #1e293b;
+      padding: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+      transform: scale(1.1);
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .box {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 15px;
+      margin-top: 30px;
+      transition: 0.3s;
+    }
+
+    .box:hover {
+      transform: scale(1.02);
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 18px;
+      border: none;
+      border-radius: 10px;
+      background: #38bdf8;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    h1 {
+      color: #38bdf8;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">🏠 Beranda</a>
+  <a href="motivasi.html">💪 Motivasi</a>
+</nav>
+
+<div class="container">
 
   <h1>🔥 Motivasi Belajar</h1>
 
-  <div style="margin:20px auto; max-width:500px; background:#1f2937; padding:20px; border-radius:15px;">
+  <div class="box">
     <p id="kata">
       Klik tombol untuk mendapatkan motivasi terbaik 💪
     </p>
+
+    <button onclick="ganti()">✨ Ganti Motivasi</button>
   </div>
 
-  <button onclick="ganti()">✨ Ganti Motivasi</button>
-
 </div>
+
+<script>
+function ganti() {
+  const list = [
+    "Belajar hari ini = sukses besok 🚀",
+    "Sedikit tapi konsisten lebih kuat 💪",
+    "Jangan menyerah, kamu bisa 😎",
+    "Hari ini lebih baik dari kemarin 🔥",
+    "Kesuksesan dimulai dari disiplin 📘"
+  ];
+
+  document.getElementById("kata").innerText =
+    list[Math.floor(Math.random() * list.length)];
+}
+</script>
+
+</body>
+</html>
