@@ -52,7 +52,7 @@ Aturan:
 `;
 
 /* API KEY */
-const API_KEY = "AIzaSyCMid3FgHPZ4S95dAjo_4xpwXWZ-25321k";
+const API_KEY = "AIzaSyALvQuNNRFeSze7Z9LJfFX0j0u2kRoxRfg";
 
 try {
 
