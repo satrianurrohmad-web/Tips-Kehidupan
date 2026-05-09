@@ -2,53 +2,21 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Beranda - Belajar Satria</title>
+  <title>Belajar Yuk</title>
 
   <style>
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-    }
-
     body {
-      font-family: Arial, sans-serif;
-      background: linear-gradient(to bottom, #0f172a, #111827);
+      margin: 0;
+      font-family: Arial;
+      background: #0f172a;
       color: white;
-      animation: fadeIn 0.7s ease-in;
-      overflow-x: hidden;
-      position: relative;
-    }
-
-    /* 🔥 MOTIF BACKGROUND */
-    body::before{
-      content: "";
-      position: fixed;
-      width: 300px;
-      height: 300px;
-      background: rgba(56,189,248,0.08);
-      border-radius: 50%;
-      top: -100px;
-      left: -100px;
-      z-index: -1;
-    }
-
-    body::after{
-      content: "";
-      position: fixed;
-      width: 250px;
-      height: 250px;
-      background: rgba(59,130,246,0.08);
-      border-radius: 50%;
-      bottom: -80px;
-      right: -80px;
-      z-index: -1;
+      animation: fadeIn 0.6s ease-in;
     }
 
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(10px);
       }
       to {
         opacity: 1;
@@ -56,16 +24,12 @@
       }
     }
 
+    /* NAVBAR */
     nav {
-      background: rgba(30,41,59,0.95);
-      padding: 18px;
+      background: #1e293b;
+      padding: 15px;
       display: flex;
-      gap: 18px;
-      position: sticky;
-      top: 0;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 3px 10px rgba(0,0,0,0.3);
-      z-index: 10;
+      gap: 15px;
     }
 
     nav a {
@@ -73,115 +37,78 @@
       text-decoration: none;
       font-weight: bold;
       transition: 0.3s;
-      padding: 8px 12px;
-      border-radius: 8px;
     }
 
     nav a:hover {
-      background: #38bdf8;
-      color: #0f172a;
-      transform: scale(1.05);
+      color: #38bdf8;
+      transform: scale(1.1);
     }
 
+    /* CONTAINER */
     .container {
-      padding: 35px;
-      max-width: 850px;
+      padding: 30px;
+      max-width: 800px;
       margin: auto;
-      position: relative;
     }
 
-    /* 🔥 MOTIF TITIK */
-    .container::before{
-      content: "";
-      position: absolute;
-      width: 150px;
-      height: 150px;
-      background-image: radial-gradient(#38bdf8 1.5px, transparent 1.5px);
-      background-size: 18px 18px;
-      opacity: 0.15;
-      top: 120px;
-      right: -40px;
-      z-index: -1;
-    }
-
-    /* 🔥 MOTIF GARIS */
-    .container::after{
-      content: "";
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      border: 2px dashed rgba(56,189,248,0.15);
-      border-radius: 20px;
-      bottom: 50px;
-      left: -60px;
-      transform: rotate(12deg);
-      z-index: -1;
-    }
-
-    /* HERO */
-    .image-section {
-      text-align: center;
-      margin-bottom: 35px;
-    }
-
-    .question {
-      font-size: 90px;
-      font-weight: bold;
-      color: #38bdf8;
-      margin-bottom: -15px;
-      text-shadow: 0 0 20px rgba(56,189,248,0.6);
-    }
-
-    .image-section img {
-      width: 320px;
-      border-radius: 20px;
-      box-shadow: 0 15px 35px rgba(0,0,0,0.5);
-      transition: 0.4s;
-    }
-
-    .image-section img:hover {
-      transform: scale(1.05) rotate(1deg);
-    }
-
+    /* JUDUL */
     h1 {
-      text-align: center;
       color: #38bdf8;
-      margin-bottom: 15px;
-      font-size: 38px;
+      text-align: center;
+      font-size: 40px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      color: #f1f5f9;
     }
 
     p {
       text-align: center;
-      color: #cbd5e1;
       line-height: 1.7;
-      margin-bottom: 30px;
     }
 
-    h2 {
-      margin-bottom: 20px;
-      color: #f8fafc;
-    }
-
+    /* CARD */
     .card {
       background: #1e293b;
-      padding: 18px;
-      border-radius: 15px;
-      margin-bottom: 18px;
-      border-left: 5px solid #38bdf8;
+      padding: 15px;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      border-left: 4px solid #38bdf8;
       transition: 0.3s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.25);
     }
 
     .card:hover {
       transform: translateY(-5px) scale(1.02);
-      background: #263548;
     }
 
-    footer{
-      text-align:center;
-      padding:25px;
-      color:#94a3b8;
-      font-size:14px;
+    /* HERO IMAGE */
+    .image-section {
+      text-align: center;
+      margin: 20px 0 30px 0;
+    }
+
+    .question {
+      font-size: 80px;
+      font-weight: bold;
+      color: #38bdf8;
+      margin-bottom: -20px;
+    }
+
+    .image-section img {
+      width: 280px;
+      border-radius: 15px;
+
+      /* GLOW EFFECT */
+      box-shadow:
+        0 10px 25px rgba(0,0,0,0.4),
+        0 0 20px rgba(56,189,248,0.4);
+
+      transition: 0.3s;
+    }
+
+    .image-section img:hover {
+      transform: scale(1.05);
     }
   </style>
 </head>
@@ -190,26 +117,26 @@
 
 <nav>
   <a href="index.html">🏠 Beranda</a>
+  <a href="tips.html">📘 Tips Belajar</a>
   <a href="motivasi.html">💪 Motivasi</a>
-  <a href="tips.html">🔥 Tips Semangat Belajar</a>
 </nav>
 
 <div class="container">
 
-  <!-- 🔥 GAMBAR -->
+  <!-- GAMBAR HERO -->
   <div class="image-section">
 
     <div class="question">?</div>
 
     <img 
-      src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f"
+      src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=1200&auto=format&fit=crop"
       alt="Buku terbuka"
     >
 
   </div>
 
   <!-- JUDUL -->
-  <h1>Apa itu Belajar?</h1>
+  <h1>📘 Belajar Yuk!</h1>
 
   <p>
     Belajar adalah proses memahami hal baru untuk menjadi lebih baik setiap hari.
@@ -224,10 +151,6 @@
   <div class="card">🧠 Agar terus berkembang</div>
 
 </div>
-
-<footer>
-  Dibuat oleh Satria Nur Rohmad
-</footer>
 
 </body>
 </html>
