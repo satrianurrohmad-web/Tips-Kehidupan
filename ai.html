@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Belajar Yuk</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      color: white;
+
+      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* NAVBAR */
+    nav {
+      background: rgba(30,41,59,0.8);
+      backdrop-filter: blur(10px);
+
+      padding: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+      transform: scale(1.1);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: auto;
+      padding: 30px;
+      text-align: center;
+    }
+
+    h1 {
+      color: #38bdf8;
+      margin-bottom: 30px;
+    }
+
+    .chat-box {
+      background: rgba(30,41,59,0.7);
+
+      padding: 25px;
+      border-radius: 20px;
+
+      box-shadow: 0 0 20px rgba(56,189,248,0.2);
+    }
+
+    input {
+      width: 80%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 12px 20px;
+
+      border: none;
+      border-radius: 10px;
+
+      background: linear-gradient(90deg, #38bdf8, #2563eb);
+
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #jawaban {
+      margin-top: 25px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">🏠 Beranda</a>
+  <a href="tips.html">📘 Tips Belajar</a>
+  <a href="motivasi.html">💪 Motivasi</a>
+  <a href="ai.html">🤖 AI</a>
+</nav>
+
+<div class="container">
+
+  <h1>🤖 AI Belajar Yuk</h1>
+
+  <div class="chat-box">
+
+    <p>
+      Tanyakan sesuatu kepada AI sederhana ini 😎
+    </p>
+
+    <input 
+      type="text"
+      id="pertanyaan"
+      placeholder="Contoh: apa itu belajar?"
+    >
+
+    <br>
+
+    <button onclick="jawab()">Kirim</button>
+
+    <div id="jawaban"></div>
+
+  </div>
+
+</div>
+
+<script>
+function jawab() {
+
+  let tanya =
+    document.getElementById("pertanyaan")
+    .value
+    .toLowerCase();
+
+  let hasil = "";
+
+  if (tanya.includes("belajar")) {
+    hasil =
+      "📘 Belajar adalah proses memahami hal baru agar menjadi lebih pintar.";
+  }
+
+  else if (tanya.includes("malas")) {
+    hasil =
+      "🔥 Cobalah belajar sedikit demi sedikit tetapi konsisten.";
+  }
+
+  else if (tanya.includes("motivasi")) {
+    hasil =
+      "💪 Jangan menyerah, masa depanmu dimulai dari belajar hari ini.";
+  }
+
+  else if (tanya.includes("halo")) {
+    hasil =
+      "👋 Halo juga! Semangat belajar ya 😎";
+  }
+
+  else {
+    hasil =
+      "🤖 Maaf, AI sederhana ini belum memahami pertanyaan itu.";
+  }
+
+  document.getElementById("jawaban")
+    .innerHTML = hasil;
+}
+</script>
+
+</body>
+</html>
