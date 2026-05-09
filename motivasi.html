@@ -1,142 +1,26 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Motivasi Belajar Satria</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      color: white;
-
-      /* 🌈 BACKGROUND PRO */
-      background: linear-gradient(135deg, #0f172a, #1e3a8a, #0ea5e9);
-
-      animation: fadeIn 0.6s ease-in;
-    }
-
-    /* 🌊 ANIMASI MASUK */
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* NAVBAR GLASS */
-    nav {
-      background: rgba(30, 41, 59, 0.8);
-      backdrop-filter: blur(10px);
-      padding: 15px;
-      display: flex;
-      gap: 15px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-      transform: scale(1.1);
-    }
-
-    /* CONTAINER */
-    .container {
-      padding: 30px;
-      max-width: 800px;
-      margin: auto;
-      text-align: center;
-    }
-
-    h1 {
-      color: #38bdf8;
-      text-shadow: 0 0 10px rgba(56,189,248,0.6);
-    }
-
-    /* BOX GLASS EFFECT */
-    .box {
-      margin-top: 40px;
-      padding: 25px;
-      border-radius: 20px;
-
-      background: rgba(30, 41, 59, 0.6);
-      backdrop-filter: blur(12px);
-
-      border: 1px solid rgba(56, 189, 248, 0.3);
-
-      transition: 0.3s;
-    }
-
-    .box:hover {
-      transform: scale(1.03);
-    }
-
-    /* BUTTON GRADIENT */
-    button {
-      margin-top: 20px;
-      padding: 12px 18px;
-      border: none;
-      border-radius: 12px;
-
-      background: linear-gradient(90deg, #38bdf8, #2563eb);
-
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 15px rgba(56,189,248,0.6);
-    }
-  </style>
+  <title>Motivasi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
 <nav>
-  <a href="index.html">🏠 Beranda</a>
-  <a href="motivasi.html">💪 Motivasi</a>
+  <h3>Motivasi</h3>
+  <div>
+    <a href="index.html">Home</a>
+    <a href="tips.html">Tips</a>
+    <a href="motivasi.html">Motivasi</a>
+    <a href="ai.html">AI</a>
+  </div>
 </nav>
 
 <div class="container">
-
-  <h1>🔥 Motivasi Belajar</h1>
-
-  <div class="box">
-    <p id="kata">
-      Klik tombol untuk mendapatkan motivasi terbaik 💪
-    </p>
-
-    <button onclick="ganti()">✨ Ganti Motivasi</button>
-  </div>
-
+  <div class="card">“Kesuksesan dimulai dari disiplin kecil”</div>
+  <div class="card">“Gagal adalah proses belajar”</div>
+  <div class="card">“Jangan bandingkan dirimu dengan orang lain”</div>
 </div>
-
-<script>
-function ganti() {
-  const list = [
-    "Belajar hari ini = sukses besok 🚀",
-    "Sedikit tapi konsisten lebih kuat 💪",
-    "Jangan menyerah, kamu bisa 😎",
-    "Hari ini lebih baik dari kemarin 🔥",
-    "Kesuksesan dimulai dari disiplin 📘"
-  ];
-
-  document.getElementById("kata").innerText =
-    list[Math.floor(Math.random() * list.length)];
-}
-</script>
 
 </body>
 </html>
