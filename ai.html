@@ -8,30 +8,18 @@
     body {
       margin: 0;
       font-family: Arial;
+      background: #0f172a;
       color: white;
 
-      background: linear-gradient(135deg, #0f172a, #1e3a8a);
+      display: flex;
+      flex-direction: column;
 
-      animation: fadeIn 0.6s ease-in;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      height: 100vh;
     }
 
     /* NAVBAR */
     nav {
-      background: rgba(30,41,59,0.8);
-      backdrop-filter: blur(10px);
-
+      background: #1e293b;
       padding: 15px;
       display: flex;
       gap: 15px;
@@ -46,46 +34,61 @@
 
     nav a:hover {
       color: #38bdf8;
-      transform: scale(1.1);
     }
 
-    .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 30px;
-      text-align: center;
+    /* AREA CHAT */
+    .chat-container {
+      flex: 1;
+      overflow-y: auto;
+
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    h1 {
-      color: #38bdf8;
-      margin-bottom: 30px;
+    /* PESAN */
+    .message {
+      max-width: 70%;
+      padding: 15px;
+      border-radius: 15px;
+      line-height: 1.5;
+      animation: fadeIn 0.3s ease;
     }
 
-    .chat-box {
-      background: rgba(30,41,59,0.7);
+    /* USER */
+    .user {
+      align-self: flex-end;
+      background: #2563eb;
+    }
 
-      padding: 25px;
-      border-radius: 20px;
+    /* AI */
+    .ai {
+      align-self: flex-start;
+      background: #1e293b;
+      border: 1px solid #38bdf8;
+    }
 
-      box-shadow: 0 0 20px rgba(56,189,248,0.2);
+    /* INPUT AREA */
+    .input-area {
+      display: flex;
+      padding: 15px;
+      background: #111827;
+      gap: 10px;
     }
 
     input {
-      width: 80%;
-      padding: 12px;
+      flex: 1;
+      padding: 14px;
       border: none;
-      border-radius: 10px;
-
-      margin-top: 20px;
+      border-radius: 12px;
       font-size: 16px;
     }
 
     button {
-      margin-top: 20px;
-      padding: 12px 20px;
-
+      padding: 14px 20px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
 
       background: linear-gradient(90deg, #38bdf8, #2563eb);
 
@@ -100,10 +103,16 @@
       transform: scale(1.05);
     }
 
-    #jawaban {
-      margin-top: 25px;
-      font-size: 18px;
-      line-height: 1.7;
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
@@ -117,69 +126,102 @@
   <a href="ai.html">🤖 AI</a>
 </nav>
 
-<div class="container">
+<!-- CHAT -->
+<div class="chat-container" id="chat">
 
-  <h1>🤖 AI Belajar Yuk</h1>
-
-  <div class="chat-box">
-
-    <p>
-      Tanyakan sesuatu kepada AI sederhana ini 😎
-    </p>
-
-    <input 
-      type="text"
-      id="pertanyaan"
-      placeholder="Contoh: apa itu belajar?"
-    >
-
-    <br>
-
-    <button onclick="jawab()">Kirim</button>
-
-    <div id="jawaban"></div>
-
+  <div class="message ai">
+    👋 Halo! Aku AI Belajar Yuk. Tanya apa saja 😎
   </div>
 
 </div>
 
+<!-- INPUT -->
+<div class="input-area">
+
+  <input
+    type="text"
+    id="input"
+    placeholder="Tulis pertanyaan..."
+  >
+
+  <button onclick="kirim()">Kirim</button>
+
+</div>
+
 <script>
-function jawab() {
+function kirim() {
 
-  let tanya =
-    document.getElementById("pertanyaan")
-    .value
-    .toLowerCase();
+  let input =
+    document.getElementById("input");
 
-  let hasil = "";
+  let teks =
+    input.value;
 
-  if (tanya.includes("belajar")) {
-    hasil =
-      "📘 Belajar adalah proses memahami hal baru agar menjadi lebih pintar.";
+  if (teks.trim() === "") return;
+
+  let chat =
+    document.getElementById("chat");
+
+  /* PESAN USER */
+  let userMsg =
+    document.createElement("div");
+
+  userMsg.className =
+    "message user";
+
+  userMsg.innerText =
+    teks;
+
+  chat.appendChild(userMsg);
+
+  /* JAWABAN AI */
+  let balasan = "";
+
+  let lower =
+    teks.toLowerCase();
+
+  if (lower.includes("belajar")) {
+    balasan =
+      "📘 Belajar membantu kita memahami hal baru dan meraih cita-cita.";
   }
 
-  else if (tanya.includes("malas")) {
-    hasil =
-      "🔥 Cobalah belajar sedikit demi sedikit tetapi konsisten.";
+  else if (lower.includes("malas")) {
+    balasan =
+      "🔥 Mulailah dari sedikit dulu, yang penting konsisten.";
   }
 
-  else if (tanya.includes("motivasi")) {
-    hasil =
-      "💪 Jangan menyerah, masa depanmu dimulai dari belajar hari ini.";
+  else if (lower.includes("motivasi")) {
+    balasan =
+      "💪 Kamu pasti bisa kalau terus mencoba.";
   }
 
-  else if (tanya.includes("halo")) {
-    hasil =
-      "👋 Halo juga! Semangat belajar ya 😎";
+  else if (lower.includes("halo")) {
+    balasan =
+      "👋 Halo juga Satria 😎";
   }
 
   else {
-    hasil =
-      "🤖 Maaf, AI sederhana ini belum memahami pertanyaan itu.";
+    balasan =
+      "🤖 Maaf, aku belum memahami pertanyaan itu.";
   }
 
-  document.getElementById("jawaban")
-    .innerHTML = hasil;
+  let aiMsg =
+    document.createElement("div");
+
+  aiMsg.className =
+    "message ai";
+
+  aiMsg.innerText =
+    balasan;
+
+  setTimeout(() => {
+    chat.appendChild(aiMsg);
+
+    chat.scrollTop =
+      chat.scrollHeight;
+  }, 500);
+
+  input.value = "";
 }
 </script>
 
