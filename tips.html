@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Tips Belajar - Belajar Satria</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial;
+      color: white;
+      background: linear-gradient(135deg, #0f172a, #1e293b);
+
+      animation: fadeIn 0.6s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    nav {
+      background: rgba(30, 41, 59, 0.8);
+      backdrop-filter: blur(10px);
+
+      padding: 15px;
+      display: flex;
+      gap: 15px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+      transform: scale(1.1);
+    }
+
+    .container {
+      max-width: 850px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #38bdf8;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: rgba(30, 41, 59, 0.7);
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 15px;
+
+      border-left: 4px solid #38bdf8;
+
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px) scale(1.02);
+    }
+
+    .icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <a href="index.html">🏠 Beranda</a>
+  <a href="tips.html">📘 Tips Belajar</a>
+  <a href="motivasi.html">💪 Motivasi</a>
+</nav>
+
+<div class="container">
+
+  <h1>📘 Tips Belajar</h1>
+
+  <div class="card">
+    <div class="icon">🎯</div>
+    <h2>Fokus Saat Belajar</h2>
+    <p>
+      Jauhkan gangguan seperti bermain HP terlalu lama saat belajar.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">⏰</div>
+    <h2>Belajar Secara Konsisten</h2>
+    <p>
+      Sedikit demi sedikit setiap hari lebih baik daripada banyak tapi jarang.
+    </p>
+  </div>
+
+  <div class="card">
+    <div class="icon">🧠</div>
+    <h2>Istirahat yang Cukup</h2>
+    <p>
+      Otak juga butuh istirahat agar lebih mudah memahami pelajaran.
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
