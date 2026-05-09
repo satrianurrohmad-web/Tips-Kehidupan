@@ -1,158 +1,5 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <title>AI Belajar Yuk</title>
-
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial;
-      background: #0f172a;
-      color: white;
-
-      display: flex;
-      flex-direction: column;
-
-      height: 100vh;
-    }
-
-    /* NAVBAR */
-    nav {
-      background: #1e293b;
-      padding: 15px;
-      display: flex;
-      gap: 15px;
-    }
-
-    nav a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
-    /* AREA CHAT */
-.chat-container {
-  height: calc(100vh - 140px);
-
-  overflow-y: auto;
-
-  padding: 20px;
-  padding-bottom: 80px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-    /* PESAN */
-    .message {
-      max-width: 70%;
-      padding: 15px;
-      border-radius: 15px;
-      line-height: 1.5;
-      animation: fadeIn 0.3s ease;
-    }
-
-    /* USER */
-    .user {
-      align-self: flex-end;
-      background: #2563eb;
-    }
-
-    /* AI */
-    .ai {
-      align-self: flex-start;
-      background: #1e293b;
-      border: 1px solid #38bdf8;
-    }
-
-    /* INPUT AREA */
-    .input-area {
-      display: flex;
-      padding: 15px;
-      background: #111827;
-      gap: 10px;
-    }
-
-    input {
-      flex: 1;
-      padding: 14px;
-      border: none;
-      border-radius: 12px;
-      font-size: 16px;
-    }
-
-    button {
-      padding: 14px 20px;
-      border: none;
-      border-radius: 12px;
-
-      background: linear-gradient(90deg, #38bdf8, #2563eb);
-
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-
-      transition: 0.3s;
-    }
-
-    button:hover {
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-<nav>
-  <a href="index.html">🏠 Beranda</a>
-  <a href="tips.html">📘 Tips Belajar</a>
-  <a href="motivasi.html">💪 Motivasi</a>
-  <a href="ai.html">🤖 AI</a>
-</nav>
-
-<!-- CHAT -->
-<div class="chat-container" id="chat">
-
-  <div class="message ai">
-    👋 Halo! Aku AI Belajar Yuk. Tanya apa saja 😎
-  </div>
-
-</div>
-
-<!-- INPUT -->
-<div class="input-area">
-
-  <input
-    type="text"
-    id="input"
-    placeholder="Tulis pertanyaan..."
-  >
-
-  <button onclick="kirim()">Kirim</button>
-
-</div>
-
 <script>
-function kirim() {
+async function kirim() {
 
   let input =
     document.getElementById("input");
@@ -177,37 +24,9 @@ function kirim() {
 
   chat.appendChild(userMsg);
 
-  /* JAWABAN AI */
-  let balasan = "";
+  input.value = "";
 
-  let lower =
-    teks.toLowerCase();
-
-  if (lower.includes("belajar")) {
-    balasan =
-      "📘 Belajar membantu kita memahami hal baru dan meraih cita-cita.";
-  }
-
-  else if (lower.includes("malas")) {
-    balasan =
-      "🔥 Mulailah dari sedikit dulu, yang penting konsisten.";
-  }
-
-  else if (lower.includes("motivasi")) {
-    balasan =
-      "💪 Kamu pasti bisa kalau terus mencoba.";
-  }
-
-  else if (lower.includes("halo")) {
-    balasan =
-      "👋 Halo juga Satria 😎";
-  }
-
-  else {
-    balasan =
-      "🤖 Maaf, aku belum memahami pertanyaan itu.";
-  }
-
+  /* PESAN AI */
   let aiMsg =
     document.createElement("div");
 
@@ -215,18 +34,49 @@ function kirim() {
     "message ai";
 
   aiMsg.innerText =
-    balasan;
+    "🤖 Sedang berpikir...";
 
-  setTimeout(() => {
-    chat.appendChild(aiMsg);
+  chat.appendChild(aiMsg);
 
-    chat.scrollTop =
-      chat.scrollHeight;
-  }, 500);
+  chat.scrollTop =
+    chat.scrollHeight;
 
-  input.value = "";
+  /* API GEMINI */
+  const API_KEY = "AIzaSyAfrii5GzRl0rnow5TUdvY4J6mzcKSyqug";
+  const response = await fetch(
+    `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${API_KEY}`,
+    {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json"
+      },
+
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              {
+                text: teks
+              }
+            ]
+          }
+        ]
+      })
+    }
+  );
+
+  const data =
+    await response.json();
+
+  let jawaban =
+    data.candidates?.[0]?.content?.parts?.[0]?.text
+    || "⚠ AI tidak bisa menjawab.";
+
+  aiMsg.innerText =
+    jawaban;
+
+  chat.scrollTop =
+    chat.scrollHeight;
 }
 </script>
-
-</body>
-</html>
